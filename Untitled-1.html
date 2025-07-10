@@ -3,25 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>estudo</title>
-    <link rel="stylesheet" type="text/css" href="Untitled-1.css">
+    <title>Sorveteria</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <header>
-        <h1>SORVETOARIA</h1><BR>
-            <button>Inicio</button> <button>produtos</button><button>contato</button>
+        <h1>Sorveteria</h1>
+        <div class="tab-container">
+            <div class="tab active" onclick="openTab(event, 'home')">Início</div>
+            <div class="tab" onclick="openTab(event, 'products')">Produtos</div>
+            <div class="tab" onclick="openTab(event, 'contact')">Contato</div>
+        </div>
     </header>
-    <nav> EXPERIMENTE !!</nav>
-    <section>
-        <H2>
-            PRODUTOS DE QUALIDADE!
-        </H2>
-        <P>
-            descrição
-        </P>
-    </section>
-    <aside>
-        <img src="">
-    </aside>
+    <nav>Experimente!!</nav>
+
+    <div id="home" class="content active">
+        <h2>Bem-vindo à Sorveteria!</h2>
+        <p>Aqui você encontra os melhores sorvetes da cidade.</p>
+    </div>
+
+    <div id="products" class="content">
+        <h2>Produtos de Qualidade!</h2>
+        <p>Descrição dos produtos oferecidos na sorveteria.</p>
+    </div>
+
+    <div id="contact" class="content">
+        <h2>Entre em Contato!</h2>
+        <p>Você pode nos contatar pelo e-mail: contato@sorveteria.com.br</p>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            // Esconde todas as abas
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove a classe 'active' de todos os botões
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Mostra a aba correspondente ao botão clicado
+            document.getElementById(tabName).classList.add('active');
+
+            // Adiciona a classe 'active' ao botão clicado
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
 </body>
 </html>
